@@ -4,10 +4,19 @@ let gridButton = document.createElement('button');
 gridButton.textContent = "Change grid size";
 gridButton.style.background = 'bisque';
 gridButton.style.color = "green";
-gridButton.style.fontSize = "15px";
+gridButton.style.fontSize = "30px";
 gridButton.style.fontWeight = "bold";
 gridButton.style.border = '5px solid red';
 topbutton.appendChild(gridButton);
+
+function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
 
 function createGrid(row,column){
 
@@ -23,7 +32,7 @@ function createGrid(row,column){
         gridItem.className ='grid-item';
 
         gridItem.addEventListener('mouseenter',() => {
-            gridItem.classList.add('hovered');
+            gridItem.style.background = getRandomColor();
         })
 
         gridItem.style.height = itemheight;
